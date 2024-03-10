@@ -211,9 +211,11 @@
             }
         }
 
-        function updateTotalPrice() {
-            let totalPrice = 0;
+        let totalPrice = 0;
 
+
+        function updateTotalPrice() {
+            totalPrice = 0;
             for (const productId in selectedProducts) {
                 const product = selectedProducts[productId];
                 totalPrice += product.quantity * product.price;
@@ -221,10 +223,9 @@
 
             const payButton = document.getElementById('payButton');
             payButton.textContent = `Pay: Total Price -> $${totalPrice.toFixed(2)}`;
-            selectedProducts["total_price"] = totalPrice.toFixed(2);
         }
-
         function pay() {
+            selectedProducts.totalPrice = totalPrice;
             tg.sendData(JSON.stringify(selectedProducts));
             tg.close()
         }
