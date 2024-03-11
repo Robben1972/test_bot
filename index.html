@@ -27,8 +27,8 @@
         }
 
         img {
-            width: 80px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
         }
 
         button {
@@ -45,7 +45,7 @@
         }
 
         button.add {
-            color: var(--tg-theme-button-color);
+            color: white;
             background: yellow;
         }
 
@@ -80,48 +80,88 @@
             width: 100%;
             margin-top: 10px;
         }
+        .column {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .product {
+            flex: 0 0 calc(20% - 20px); /* Adjust the percentage as needed */
+            margin: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <div class="product" id="product1">
-        <div>
-            <img src="img/hotdog.png" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>$20.00</p>
-            <button class="add" onclick="updateCounter('product1', 'add')">Add</button>
+    <div class="column">
+        <div class="product" id="hotdog">
+            <div>
+                <img src="img/hotdog.png" alt="hotdog">
+                <h3>Product 1</h3>
+                <p>$20.00</p>
+                <button class="add" onclick="updateCounter('hotdog', 'add')">Add</button>
+            </div>
         </div>
-    </div>
-    <div class="product" id="product2">
-        <div>
-            <img src="img/hotdog.png" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>$10.00</p>
-            <button class="add" onclick="updateCounter('product2', 'add')">Add</button>
+        <div class="product" id="cheeseburger">
+            <div>
+                <img src="img/cheeseburger.png" alt="cheeseburger">
+                <h3>Product 2</h3>
+                <p>$10.00</p>
+                <button class="add" onclick="updateCounter('cheeseburger', 'add')">Add</button>
+            </div>
         </div>
-    </div>
-    <div class="product" id="product3">
-        <div>
-            <img src="img/hotdog.png" alt="Product 3">
-            <h3>Product 3</h3>
-            <p>$13.00</p>
-            <button class="add" onclick="updateCounter('product3', 'add')">Add</button>
+        <div class="product" id="taco">
+            <div>
+                <img src="img/taco.png" alt="taco">
+                <h3>Product 3</h3>
+                <p>$13.00</p>
+                <button class="add" onclick="updateCounter('taco', 'add')">Add</button>
+            </div>
         </div>
-    </div>
-    <div class="product" id="product4">
-        <div>
-            <img src="img/hotdog.png" alt="Product 4">
-            <h3>Product 4</h3>
-            <p>$12.25</p>
-            <button class="add" onclick="updateCounter('product4', 'add')">Add</button>
+        <div class="product" id="fri">
+            <div>
+                <img src="img/fri.png" alt="fri">
+                <h3>Product 4</h3>
+                <p>$12.25</p>
+                <button class="add" onclick="updateCounter('fri', 'add')">Add</button>
+            </div>
         </div>
-    </div>
-    <div class="product" id="product5">
-        <div>
-            <img src="img/hotdog.png" alt="Product 5">
-            <h3>Product 5</h3>
-            <p>$5.00</p>
-            <button class="add" onclick="updateCounter('product5', 'add')">Add</button>
+        <div class="product" id="kfc">
+            <div>
+                <img src="img/kfc.png" alt="kfc">
+                <h3>Product 5</h3>
+                <p>$5.00</p>
+                <button class="add" onclick="updateCounter('kfc', 'add')">Add</button>
+            </div>
+        </div>
+        <div class="product" id="pizza">
+            <div>
+                <img src="img/pizza.png" alt="pizza">
+                <h3>Product 6</h3>
+                <p>$15.50</p>
+                <button class="add" onclick="updateCounter('pizza', 'add')">Add</button>
+            </div>
+        </div>
+        <div class="product" id="sandwich">
+            <div>
+                <img src="img/sandwich.png" alt="sandwich">
+                <h3>Product 7</h3>
+                <p>$8.75</p>
+                <button class="add" onclick="updateCounter('sandwich', 'add')">Add</button>
+            </div>
+        </div>
+        <div class="product" id="ice-cream">
+            <div>
+                <img src="img/ice-cream.png" alt="ice-cream">
+                <h3>Product 8</h3>
+                <p>$18.00</p>
+                <button class="add" onclick="updateCounter('ice-cream', 'add')">Add</button>
+            </div>
         </div>
     </div>
 
