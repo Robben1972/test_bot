@@ -165,7 +165,7 @@
         </div>
     </div>
 
-    <button id="payButton" style="display: none;" onclick="pay()">Pay</button>
+    <button id="payButton" onclick="onCheckout()">Pay</button>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -264,11 +264,14 @@
             const payButton = document.getElementById('payButton');
             payButton.textContent = `Pay: Total Price -> $${totalPrice.toFixed(2)}`;
         }
-        function pay() {
-            selectedProducts.totalPrice = totalPrice;
-            tg.sendData(JSON.stringify(selectedProducts));
-            tg.close()
-        }
+        const onCheckout = () => {
+    tg.MainButton.text = "Pay :)";
+    tg.MainButton.show();
+    tg.MainButton.onClick = () => {
+        tg.sendData(JSON.stringify(selectedProducts));
+        tg.close();
+    };
+};
     </script>
 </body>
 
