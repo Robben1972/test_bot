@@ -17,7 +17,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
-            color: var(--tg-theme-text-color);
+            color: white;
             background: var(--tg-theme-bg-color);
             display: flex;
             flex-direction: column;
@@ -98,7 +98,7 @@
 </head>
 
 <body>
-    <button id="payButton" style="border-radius: 20px; width: 100px; display: none; padding: auto;" onclick="onCheckout()">Pay</button>
+    <button id="payButton", style="border-radius: 20px; width: 100px;"  onclick="onCheckout()">Check</button>
     <div class="column">
         <div class="product" id="hotdog">
             <div>
@@ -243,23 +243,13 @@
         }
 
         function togglePayButton() {
-    const payButton = document.getElementById('payButton');
-    if (Object.keys(selectedProducts).length > 0) {
-        payButton.style.display = 'block';
-    } else {
-        payButton.style.display = 'none';
-    }
-}
-
-        const onCheckout = () => {
-            tg.MainButton.text = "Pay :)" + totalPrice;
-            tg.MainButton.show();
-            tg.MainButton.onClick = () => {
-                tg.sendData(JSON.stringify(selectedProducts));
-                tg.close();
-            };
-        };
-
+            const payButton = document.getElementById('payButton');
+            if (Object.keys(selectedProducts).length > 0) {
+                payButton.style.display = 'block';
+            } else {
+                payButton.style.display = 'none';
+            }
+        }
 
         let totalPrice = 0;
 
@@ -272,8 +262,16 @@
             }
 
             const payButton = document.getElementById('payButton');
-            payButton.textContent = `Pay`;
+            payButton.textContent = `Check Price`;
         }
+        const onCheckout = () => {
+    tg.MainButton.text = "Pay :)";
+    tg.MainButton.show();
+    tg.MainButton.onClick = () => {
+        tg.sendData(JSON.stringify(selectedProducts));
+        tg.close();
+    };
+};
     </script>
 </body>
 
