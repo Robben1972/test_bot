@@ -244,11 +244,11 @@
 
         function togglePayButton() {
             const payButton = document.getElementById('payButton');
-            if (Object.keys(selectedProducts).length > 0) {
-                payButton.style.display = 'block';
-            } else {
-                payButton.style.display = 'none';
-            }
+            tg.MainButton.show();
+            tg.MainButton.onClick = () => {
+            tg.sendData(JSON.stringify(Cart.cart));
+            tg.close(); 
+    };
         }
 
         let totalPrice = 0;
@@ -262,12 +262,7 @@
             }
 
             const payButton = document.getElementById('payButton');
-            payButton.textContent = `Pay: Total Price -> $${totalPrice.toFixed(2)}`;
-        }
-        function pay() {
-            selectedProducts.totalPrice = totalPrice;
-            tg.sendData(JSON.stringify(selectedProducts));
-            tg.close()
+            tg.MainButton.text = "Pay :) " + totalPrice;
         }
     </script>
 </body>
