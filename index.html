@@ -17,7 +17,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
-            color: white;
+            color: var(--tg-theme-text-color);
             background: var(--tg-theme-bg-color);
             display: flex;
             flex-direction: column;
@@ -263,14 +263,10 @@
 
             const payButton = document.getElementById('payButton');
             payButton.textContent = `Check Price`;
+            payButton.onClick = () => {
+            tg.sendData(JSON.stringify(selectedProducts));
+            tg.close();
         }
-        const onCheckout = () => {
-    tg.MainButton.text = "Pay :)";
-    tg.MainButton.show();
-    tg.MainButton.onClick = () => {
-        tg.sendData(JSON.stringify(selectedProducts));
-        tg.close();
-    };
 };
     </script>
 </body>
