@@ -98,6 +98,7 @@
 </head>
 
 <body>
+    <button id="payButton" style="border-radius: 20px; width: 100px; display: none; padding: auto;" onclick="onCheckout()">Pay</button>
     <div class="column">
         <div class="product" id="hotdog">
             <div>
@@ -165,7 +166,6 @@
         </div>
     </div>
 
-    <button id="payButton" onclick="onCheckout()">Pay</button>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -243,13 +243,23 @@
         }
 
         function togglePayButton() {
-            const payButton = document.getElementById('payButton');
-            if (Object.keys(selectedProducts).length > 0) {
-                payButton.style.display = 'block';
-            } else {
-                payButton.style.display = 'none';
-            }
-        }
+    const payButton = document.getElementById('payButton');
+    if (Object.keys(selectedProducts).length > 0) {
+        payButton.style.display = 'block';
+    } else {
+        payButton.style.display = 'none';
+    }
+}
+
+        const onCheckout = () => {
+            tg.MainButton.text = "Pay :)" + totalPrice;
+            tg.MainButton.show();
+            tg.MainButton.onClick = () => {
+                tg.sendData(JSON.stringify(selectedProducts));
+                tg.close();
+            };
+        };
+
 
         let totalPrice = 0;
 
@@ -262,16 +272,8 @@
             }
 
             const payButton = document.getElementById('payButton');
-            payButton.textContent = `Pay: Total Price -> $${totalPrice.toFixed(2)}`;
+            payButton.textContent = `Pay`;
         }
-        const onCheckout = () => {
-    tg.MainButton.text = "Pay :)";
-    tg.MainButton.show();
-    tg.MainButton.onClick = () => {
-        tg.sendData(JSON.stringify(selectedProducts));
-        tg.close();
-    };
-};
     </script>
 </body>
 
