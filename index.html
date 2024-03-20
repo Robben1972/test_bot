@@ -243,9 +243,19 @@
         }
 
         function togglePayButton() {
-            const payButton = document.getElementById('payButton');
-            tg.MainButton.show();
-        }
+    const payButton = document.getElementById('payButton');
+    if (Object.keys(selectedProducts).length > 0) {
+        payButton.style.display = 'block';
+        tg.MainButton.text = "Pay :) " + totalPrice;
+        tg.MainButton.onClick = () => {
+            tg.sendData(JSON.stringify(selectedProducts));
+            tg.close();
+        };
+    } else {
+        payButton.style.display = 'none';
+    }
+}
+
 
         let totalPrice = 0;
 
