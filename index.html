@@ -244,11 +244,7 @@
 
         function togglePayButton() {
             const payButton = document.getElementById('payButton');
-            tg.MainButton.show();
-            tg.MainButton.onClick = () => {
-            tg.sendData(JSON.stringify(Cart.cart));
-            tg.close(); 
-    };
+      
         }
 
         let totalPrice = 0;
@@ -263,6 +259,11 @@
 
             const payButton = document.getElementById('payButton');
             tg.MainButton.text = "Pay :) " + totalPrice;
+            tg.MainButton.show();
+            tg.MainButton.onClick = () => {
+            tg.sendData(JSON.stringify(Cart.cart));
+            tg.close(); 
+    };
         }
     </script>
 </body>
