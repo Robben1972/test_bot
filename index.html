@@ -254,14 +254,15 @@
         }
 
         function togglePayButton() {
-            updateTotalPrice()
-            const payButton = document.getElementById('payButton');
-            payButton.textContent = "Pay -> " + totalPrice
-            payButton.onClick = () => {
-            tg.sendData(JSON.stringify(selectedProducts));
-            tg.close(); 
-    };
-        }
+  const payButton = document.getElementById('payButton');
+  payButton.textContent = "Pay -> $" + totalPrice; // Update text with current total price
+  payButton.onClick = () => {
+    updateTotalPrice(); // Update total price before sending data
+    tg.sendData(JSON.stringify(selectedProducts));
+    tg.close();
+  };
+}
+
 
         
     </script>
