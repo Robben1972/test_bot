@@ -259,9 +259,8 @@
 
             const payButton = document.getElementById('payButton');
             tg.MainButton.text = "Pay :) " + totalPrice;
-            tg.MainButton.show();
             tg.MainButton.onClick = () => {
-            tg.sendData(JSON.stringify(Cart.cart));
+            tg.sendData(JSON.stringify(selectedProducts));
             tg.close(); 
     };
         }
