@@ -266,13 +266,6 @@
                 const product = selectedProducts[productId];
                 totalPrice += product.quantity * product.price;
             }
-
-            const payButton = document.getElementById('payButton');
-            tg.MainButton.text = "Pay :) " + totalPrice;
-            tg.MainButton.onClick = () => {
-            tg.sendData(JSON.stringify(selectedProducts));
-            tg.close(); 
-    };
         }
     </script>
 </body>
